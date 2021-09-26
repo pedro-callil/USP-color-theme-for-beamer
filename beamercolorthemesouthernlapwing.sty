@@ -9,15 +9,42 @@
 %
 % See the file doc/licenses/LICENSE for more details.
 
+\RequirePackage{ifthen}
+\RequirePackage{stringstrings}
+
+\def\beamer@usp@inst{usp}
+
+\DeclareOptionBeamer{usp}{\def\beamer@usp@inst{usp}}
+\DeclareOptionBeamer{poli}{\def\beamer@usp@inst{poli}}
+\ProcessOptionsBeamer
+
 \mode<presentation>
 
-\definecolor{uspdarkblue}{RGB}{16, 148, 171}
-\definecolor{usplightblue}{RGB}{100, 196, 210}
-\definecolor{uspyellow}{RGB}{252, 180, 33}
+\definecolor{instprimary}{RGB}{16, 148, 171}
+\definecolor{instsecondary}{RGB}{100, 196, 210}
+\definecolor{insttertiary}{RGB}{252, 180, 33}
+
+\ifthenelse{
+  \equal{\beamer@usp@inst}{usp}
+}{
+  \definecolor{instprimary}{RGB}{16, 148, 171}
+  \definecolor{instsecondary}{RGB}{100, 196, 210}
+  \definecolor{insttertiary}{RGB}{252, 180, 33}
+}{
+}
+
+\ifthenelse{
+  \equal{\beamer@usp@inst}{poli}
+}{
+  \definecolor{instprimary}{RGB}{1, 33, 105}
+  \colorlet{instsecondary}{instprimary!20!white}
+  \definecolor{insttertiary}{RGB}{254, 221, 0}
+}{
+}
 
 \setbeamercolor*{normal text}{fg=black,bg=white}
-\setbeamercolor*{alerted text}{fg=uspdarkblue}
-\setbeamercolor*{example text}{fg=usplightblue}
+\setbeamercolor*{alerted text}{fg=instprimary}
+\setbeamercolor*{example text}{fg=instsecondary}
 \setbeamercolor*{structure}{fg=black}
 
 \providecommand*{\beamer@bftext@only}{%
@@ -35,27 +62,27 @@
 
 \setbeamerfont{alerted text}{series=\beamer@bftext@only}
 
-\setbeamercolor*{palette primary}{fg=black,bg=uspyellow}
-\setbeamercolor*{palette secondary}{fg=black,bg=uspyellow}
-\setbeamercolor*{palette tertiary}{fg=black,bg=uspyellow}
-\setbeamercolor*{palette quaternary}{fg=black,bg=uspyellow}
+\setbeamercolor*{palette primary}{fg=black,bg=insttertiary}
+\setbeamercolor*{palette secondary}{fg=black,bg=insttertiary}
+\setbeamercolor*{palette tertiary}{fg=black,bg=insttertiary}
+\setbeamercolor*{palette quaternary}{fg=black,bg=insttertiary}
 
-\setbeamercolor{sidebar}{bg=uspyellow!60!white}
+\setbeamercolor{sidebar}{bg=insttertiary!60!white}
 
 \setbeamercolor*{palette sidebar primary}{fg=black}
 \setbeamercolor*{palette sidebar secondary}{fg=black}
 \setbeamercolor*{palette sidebar tertiary}{fg=black}
 \setbeamercolor*{palette sidebar quaternary}{fg=black}
 
-\setbeamercolor*{item projected}{fg=black,bg=usplightblue}
+\setbeamercolor*{item projected}{fg=black,bg=instsecondary}
 
-\setbeamercolor*{block title}{fg=white,bg=uspdarkblue}
-\setbeamercolor*{block title alerted}{fg=white,bg=uspdarkblue!50!black}
-\setbeamercolor*{block title example}{fg=white,bg=uspdarkblue}
+\setbeamercolor*{block title}{fg=white,bg=instprimary}
+\setbeamercolor*{block title alerted}{fg=white,bg=instprimary!50!black}
+\setbeamercolor*{block title example}{fg=white,bg=instprimary}
 
-\setbeamercolor*{block body}{fg=black,bg=usplightblue}
-\setbeamercolor*{block body alerted}{fg=black,bg=usplightblue}
-\setbeamercolor*{block body example}{fg=black,bg=usplightblue}
+\setbeamercolor*{block body}{fg=black,bg=instsecondary}
+\setbeamercolor*{block body alerted}{fg=black,bg=instsecondary}
+\setbeamercolor*{block body example}{fg=black,bg=instsecondary}
 
 \setbeamercolor*{separation line}{}
 \setbeamercolor*{fine separation line}{}
