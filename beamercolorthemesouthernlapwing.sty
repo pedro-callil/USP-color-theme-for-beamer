@@ -37,7 +37,7 @@
   \equal{\beamer@usp@inst}{poli}
 }{
   \definecolor{instprimary}{RGB}{1, 33, 105}
-  \colorlet{instsecondary}{instprimary!20!white}
+  \colorlet{instsecondary}{instprimary!40!white}
   \definecolor{insttertiary}{RGB}{254, 221, 0}
 }{
 }
@@ -86,6 +86,12 @@
 
 \setbeamercolor*{separation line}{}
 \setbeamercolor*{fine separation line}{}
+
+\setbeamercolor*{itemize item}{fg=instprimary}
+\setbeamercolor*{itemize subitem}{fg=instprimary}
+\setbeamercolor*{itemize subsubitem}{fg=instprimary}
+
+\setbeamercolor*{item projected}{bg=instprimary, fg=white}
 
 \mode
 <all>
