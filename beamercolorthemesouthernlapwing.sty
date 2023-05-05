@@ -16,6 +16,7 @@
 
 \DeclareOptionBeamer{usp}{\def\beamer@usp@inst{usp}}
 \DeclareOptionBeamer{poli}{\def\beamer@usp@inst{poli}}
+\DeclareOptionBeamer{peq}{\def\beamer@usp@inst{peq}}
 \ProcessOptionsBeamer
 
 \mode<presentation>
@@ -39,6 +40,15 @@
   \definecolor{instprimary}{RGB}{1, 33, 105}
   \colorlet{instsecondary}{instprimary!40!white}
   \definecolor{insttertiary}{RGB}{254, 221, 0}
+}{
+}
+
+\ifthenelse{
+  \equal{\beamer@usp@inst}{peq}
+}{
+  \definecolor{instprimary}{RGB}{50, 50, 50}
+  \colorlet{instsecondary}{instprimary!40!white}
+  \definecolor{insttertiary}{HTML}{ED0678}
 }{
 }
 

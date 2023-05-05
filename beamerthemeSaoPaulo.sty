@@ -16,6 +16,7 @@
 
 \DeclareOptionBeamer{compress}{\beamer@compresstrue}
 \DeclareOptionBeamer{poli}{\def\beamer@usp@inst{poli}}
+\DeclareOptionBeamer{peq}{\def\beamer@usp@inst{peq}}
 \ProcessOptionsBeamer
 
 \mode<presentation>
@@ -26,7 +27,13 @@
 }{
 	\usecolortheme[poli]{southernlapwing}
 }{
-	\usecolortheme{southernlapwing}
+	\ifthenelse{
+		\equal{\beamer@usp@inst}{peq}
+	}{
+		\usecolortheme[peq]{southernlapwing}
+	}{
+		\usecolortheme{southernlapwing}
+	}
 }
 \useinnertheme{rectangles}
 
