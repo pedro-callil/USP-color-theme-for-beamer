@@ -23,18 +23,24 @@
 
 \useoutertheme[footline=authorinstitutetitle]{thinframes}
 \ifthenelse{
+	\equal{\beamer@usp@inst}{usp}
+}{
+	\usecolortheme{southernlapwing}
+}{
+}
+\ifthenelse{
 	\equal{\beamer@usp@inst}{poli}
 }{
 	\usecolortheme[poli]{southernlapwing}
 }{
-	\ifthenelse{
-		\equal{\beamer@usp@inst}{peq}
-	}{
-		\usecolortheme[peq]{southernlapwing}
-	}{
-		\usecolortheme{southernlapwing}
-	}
 }
+\ifthenelse{
+	\equal{\beamer@usp@inst}{peq}
+}{
+	\usecolortheme[peq]{southernlapwing}
+}{
+}
+
 \useinnertheme{rectangles}
 
 \setbeamerfont{block title}{size={}}
